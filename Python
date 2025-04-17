@@ -1,1 +1,8 @@
+#Q. 문제: 자기소개 포매팅 프로그램
+name = input("이름을 입력하세요: ")
+age = input("나이를 입력하세요: ")
+print(f'안녕하세요, 제 이름은 {name}이고 나이는 {age}살입니다.')
 
+#Q. 문제: 사과 출력기
+num = int(input("몇 개의 사과를 먹었나요?"))
+print('I eat %d apples'% num) 
