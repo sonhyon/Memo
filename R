@@ -1,1 +1,15 @@
+# 학생 데이터 (직접 R에 입력)
+age <- c(13, 14, 13, 15, 14, 13, 15, 14, 13, 15)  # 나이
+height <- c(155, 160, 152, 165, 158, 154, 167, 159, 153, 166)  # 키
 
+#Q. 나이와 키 간의 산점도(Scatter plot) 를 그려보세요.
+plot(age, height)
+#Q. 나이와 키의 상관계수(correlation) 를 계산해보세요.
+cor(age, height)
+#Q. 나이로 키를 예측할 수 있을지 간단한 선형회귀(linear regression) 를 해보세요.
+lm(height ~ age)
+
+#나이별 평균 키 계산
+avg_heigh <- tapply(height, age, mean) #tapply()함수는 나이별로 묶어서 평균을 구함
+#막대그래프 그리기
+barplot(avg_heigh)
