@@ -6,3 +6,25 @@ print(f'안녕하세요, 제 이름은 {name}이고 나이는 {age}살입니다.
 #Q. 문제: 사과 출력기
 num = int(input("몇 개의 사과를 먹었나요?"))
 print('I eat %d apples'% num) 
+
+#Q. 사용자로부터 숫자를 입력받고, 그 숫자가 짝수인지 홀수인지를 출력하는 프로그램을 작성하세요.
+num = int(input('숫자를 입력해주세요: '))
+if num % 2 == 0:
+    print("짝수입니다")
+else:
+    print("홀수입니다")
+
+#Q. 숫자들의 리스트가 주어질 때, 그 리스트의 평균을 구하는 프로그램을 작성하세요.
+numbers = input("숫자들을 입력하세요 (쉼표로 구분): ").split(',')  # 쉼표로 구분
+numbers = [int(num) for num in numbers]  # 입력된 값을 정수로 변환하여 리스트로 만듦
+
+average = sum(numbers) / len(numbers)
+print(average)
+
+#Q. 문자열에서 특정 문자가 몇 번 나오는지 세는 프로그램
+text = input("문자열 입력: ")
+search_char = input("특정 문자 입력: ")
+
+count = text.count(search_char) #count() 함수를 사용하여 특정 문자의 개수 세기
+ 
+print(count)
