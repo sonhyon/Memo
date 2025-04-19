@@ -26,5 +26,22 @@ text = input("문자열 입력: ")
 search_char = input("특정 문자 입력: ")
 
 count = text.count(search_char) #count() 함수를 사용하여 특정 문자의 개수 세기
- 
 print(count)
+
+#Q. 리스트에 있는 점수들의 총합을 직접 구해보세요 (내장 함수 sum() 사용 금지!)
+total=0
+for i in range(len(scores)) :
+    total += scores[i]
+print(total)
+
+#Q. 총합을 이용해서 평균 점수를 출력하세요. (소수점 한 자리까지)
+avg = total / len(scores)
+print(avg)
+
+#Q. 각 학생의 성적이 80점 이상이면 "Passed", 80점 미만이면 "Failed" 라고 출력하세요.
+for name, grade in students.items():
+    if grade >= 80:
+        result = "Passed"
+    else:
+        result = "Failed"
+    print(f'{name}:{result}')
