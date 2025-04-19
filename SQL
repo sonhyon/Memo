@@ -1,11 +1,11 @@
-#문제: 이름이 'A'로 시작하는 고객의 이름과 이메일을 조회하세요.
+#Q: 이름이 'A'로 시작하는 고객의 이름과 이메일을 조회하세요.
 SELECT FIRST_NAME, EMAIL FROM CUSTOMER WHERE FIRST_NAME LIKE 'A%';
 
-#문제: STORE_ID가 1인 고객을 조회하고, FIRST_NAME을 기준으로 내림차순 정렬하세요.
+#Q: STORE_ID가 1인 고객을 조회하고, FIRST_NAME을 기준으로 내림차순 정렬하세요.
 SELECT FIRST_NAME FROM CUSTOMER WHERE STORE_ID = 1 
 ORDER BY FIRST_NAME DESC; #ASC와 DESC는 ORDER BY와 세트
 
-#문제: STORE_ID별로 고객 수를 세고, 고객 수가 2명 이상인 STORE_ID만 출력하세요.
+#Q: STORE_ID별로 고객 수를 세고, 고객 수가 2명 이상인 STORE_ID만 출력하세요.
 SELECT STORE_ID, COUNT(*) FROM CUSTOMER  
 GROUP BY STORE_ID
 HAVING COUNT(*) >= 2;
@@ -19,3 +19,14 @@ HAVING MANY >=3;
 SELECT NAME FROM EMPLOYEES
 ORDER BY SALARY DESC LIMIT 3; #LIMIT은 ORDER BY와 세트
 
+#Q. 전공이 "Statistics"인 학생들의 이름과 성적(grade)을 조회하세요.
+SELECT NAME, GRADE FROM STUDENTS
+WHERE MAJOR = 'Statistics';
+
+#Q. 성적이 80점 이상인 학생을 성적 높은 순으로 정렬해서 이름과 성적만 조회하세요.
+SELECT NAME, GRADE FROM STUDENTS
+WHERE GRADE >= 80
+ORDER BY GRADE DESC;
+
+#Q. 평균 성적을 구하세요
+SELECT AVG(GRADE) FROM STUDENTS;
