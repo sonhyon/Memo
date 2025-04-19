@@ -1,7 +1,3 @@
-# 학생 데이터 (직접 R에 입력)
-age <- c(13, 14, 13, 15, 14, 13, 15, 14, 13, 15)  # 나이
-height <- c(155, 160, 152, 165, 158, 154, 167, 159, 153, 166)  # 키
-
 #Q. 나이와 키 간의 산점도(Scatter plot) 를 그려보세요.
 plot(age, height)
 #Q. 나이와 키의 상관계수(correlation) 를 계산해보세요.
@@ -14,12 +10,6 @@ avg_heigh <- tapply(height, age, mean) #tapply()함수는 나이별로 묶어서
 #막대그래프 그리기
 barplot(avg_heigh)
 
-
-#데이터
-name <- c("Alice", "Bob", "Charlie", "David", "Eva")
-english <- c(90, 80, 60, 70, 85)
-math <- c(50, 60, 100, 20, 95)
-science <- c(85, 75, 90, 65, 80)
 #Q. 학생별 평균 점수를 구하라.
 Grade <- data.frame(name, english, math, science)
 Grade$average <- rowMeans(Grade[,2:4]) #평균을 데이터프레임에 추가함. rowMeans로 행의 평균을 구함
@@ -28,14 +18,22 @@ mean(Grade$english) ; mean(Grade$math) ; mean(Grade$science)
 #Q. 평균 점수를 기준으로 학생들을 내림차순으로 정렬하라.
 Grade_sorted <- Grade[order(-Grade$average), ] #order(-Grade$average)으로 순위 출력, Grade[,]로 순위를 행에다 붙이기
 
-
 #Q. 영어 점수 기준으로 내림차순으로 정렬된 학생들의 이름과 영어 점수만 출력하라.
-name <- c("John", "Anna", "Zoe", "Mike", "Chris")
-math <- c(88, 95, 79, 83, 91)
-english <- c(92, 88, 85, 90, 87)
-science <- c(85, 89, 92, 78, 94)
-
 score <- data.frame(name, math, english, science)
 score_stored <- score[order(-score$english),]
 score_stored[c("name", "english")]
 
+#Q. 학생별 평균 점수를 나타내는 avg라는 열을 추가하세요.
+students$avg <- rowMeans(students[,2:4])
+
+#Q. 평균이 70점 이상이면 "Good", 아니면 "Needs Improvement"라고 평가하는 remark 열을 추가하세요.
+students$remark <- ifelse(students$avg >= 70, "Good", "Needs Improvement")
+
+#Q. 이 기능을 하는 함수 evaluate_students()를 만들어서, students 데이터를 넣으면 결과 데이터프레임을 출력하게 하세요.
+evaluate_students <- function(students) {
+  students$avg <- rowMeans(students[,2:4])
+  students$remark <- ifelse(students$avg >= 70, "Good", "Needs Improvement")
+  return(students)
+}
+result <- evaluate_students(students)
+print(result)
